@@ -4,13 +4,13 @@ object Dependencies {
 
   object Versions {
 
-    val scalaVersion = "2.12.2"
+    val scalaVersion = "2.12.3"
 
     val catsVersion = "1.0.0-MF"
     // For Cats version compatibility see https://github.com/IronCoreLabs/cats-scalatest#setup
     val catsScalaTestVersion = "2.3.0"
-    val scalaCheckVersion = "1.13.4"
-    val scalaTestVersion = "3.0.3"
+    val scalaCheckVersion = "1.13.5"
+    val scalaTestVersion = "3.0.4"
   }
 
   import Versions._
