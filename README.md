@@ -59,6 +59,24 @@ to impose fewer restrictions on the language and make it easier to work with.
 
 My goal was to explore this tradeoff and to create a tool that favours the practical choice.
 
+## Principals
+
+Favour practice over theory.
+Assume users do not know any esoteric Functional Programming concepts.
+- Ok: Immutability, Pure Functions, Higher-Order Functions, Apply, Map, Flatmap
+- Not Ok: Monad, Functor, Applicative, Combinator, Lense
+Require no knowledge of third party libraries (except of course in those modules).
+
+## Requirements
+
+Reactive Streams
+Asynchronous
+Non-blocking
+Composable
+Transformations
+Lossless
+Extractions
+
 ## Case Studies
 
 ### JSON
@@ -119,23 +137,32 @@ uses in mind and these specifications are usually accompanied with reference imp
 theoretical limits are interesting we can take a pragmatic approach and can impose some limitations on the language and
 still be useful.
 
-## Other Implementations
+## Other Projects
 
-There are a lot of parsers out there already however they are all either document-based (DOM), push-based (SAX), or
-pull-based (StAX).
+I had heard there were a whole bunch of JSON libraries in Scala but I never realised the extent of the situation until I
+started doing research for this project. On one hand I was hoping there was something that already did what I wanted but
+on the other I was hoping there was a gap that I could contribute to. Not to mention that my intention was not just to
+parse JSON but multiple languages.
 
-Those that are asynchronous require a blocking InputStream/OutputStream and so are unsuitable.
+There are JSON parsers which take some JSON text and give back some JSON AST. This is great but pretty boring. It also
+means that the entire AST must be read into memory.
 
-### Comparison
+There are others that use fancy Functional Programming concepts and sound completely alien to a layperson and in my
+opinion should not but the burden of theses details on their user. While they contain some really awesome ideas, which I
+intend to copy, my goal is different.
 
-TODO: Add comparisons
+TODO: Describe asyn vs blocking implementations.
 
-## Requirements
+### List (TODO: Rename)
 
-Reactive Streams
-Actually async
-Non blocking
-Lossless
-Composable
-Transformations
-Extractions
+TODO: Compare
+
+https://github.com/circe/circe
+https://github.com/circe/circe-fs2
+https://github.com/knutwalker/akka-stream-json
+https://github.com/scodec/scodec
+https://github.com/scodec/scodec-stream
+https://github.com/krasserm/streamz
+https://github.com/functional-streams-for-scala/fs2
+https://github.com/non/jawn
+https://github.com/argonaut-io/argonaut
