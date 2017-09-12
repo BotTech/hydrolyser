@@ -1,6 +1,16 @@
+import Dependencies._
+
 name := "hydrolyser"
+
+organization := "nz.co.bottech"
+
+organizationName := "BotTech"
 
 version := "0.1"
 
-scalaVersion := "2.12.2"
-        
+scalaVersion := Versions.scalaVersion
+
+libraryDependencies ++= Seq(
+  cats
+)
+libraryDependencies ++= testDependencies
