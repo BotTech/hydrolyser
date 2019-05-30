@@ -32,9 +32,18 @@ object Name {
 
   private def extractName(text: String, start: Int, end: Int): Either[PositionalError, String] = {
     if (end > start) {
-      Right(text.substring(start, end))
+      validateName(text.substring(start, end), text, start)
     } else {
       Left(PositionalError(s"Name '$text' is empty", text, start))
+    }
+  }
+
+  private def validateName(name: String, text: String, start: Int): Either[PositionalError, String] = {
+    val trimmed = name.trim
+    if (trimmed.isEmpty) {
+      Left(PositionalError(s"Name '$text' contains only whitespace", text, start))
+    } else {
+      Right(trimmed)
     }
   }
 }
